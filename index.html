@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Game Shelf</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -18,14 +18,14 @@
 
       <div>
         <p class="text-center pt-2" id="auth-message"></p>
-        <h3>Sign Up</h3>
+        <h4>Sign Up</h4>
         <form id="sign-up">
           <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
           <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
           <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
           <button class="btn btn-primary" type="submit">Sign Up</button>
         </form>
-        <h3>Sign In</h3>
+        <h4>Sign In</h4>
         <form id="sign-in">
           <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
           <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
@@ -33,7 +33,7 @@
         </form>
       </div>
 
-      <h3>Change Password</h3>
+      <h4>Change Password</h4>
       <form id="change-password">
         <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
         <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
@@ -42,6 +42,21 @@
       </form>
 
       <button id="sign-out" class="btn btn-primary" type="button">Sign Out</button>
+
+      <button id="index-games" class="btn btn-primary" type="button">All Games</button>
+      <button id="create-game-btn" class="btn btn-primary" type="button">Create Game</button>
+      <button id="add-to-shelf" class="btn btn-primary" type="button">Add to Shelf</button>
+      <button id="index-shelf" class="btn btn-primary" type="button">Your Shelf</button>
+
+      <h4>Create Game</h4>
+      <form id="create-game">
+        <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game">
+        <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players">
+        <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players">
+        <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes">
+        <input class="form-control mb-1" type=text name="game[description]" placeholder="Game Description">
+        <button class="btn btn-primary" type="submit">Create Game</button>
+      </form>
 
     </body>
 </html>
