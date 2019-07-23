@@ -12,6 +12,36 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <header>
+        <h1>Game Shelf</h1>
+      </header>
+
+      <div>
+        <p class="text-center pt-2" id="auth-message"></p>
+        <h3>Sign Up</h3>
+        <form id="sign-up">
+          <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+          <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+          <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button class="btn btn-primary" type="submit">Sign Up</button>
+        </form>
+        <h3>Sign In</h3>
+        <form id="sign-in">
+          <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+          <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+          <button class="btn btn-primary" type="submit">Sign In</button>
+        </form>
+      </div>
+
+      <h3>Change Password</h3>
+      <form id="change-password">
+        <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
+        <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
+        <button class="btn btn-primary" type="submit">Change Password</button>
+        <p id="change-pw-message"></p>
+      </form>
+
+      <button id="sign-out" class="btn btn-primary" type="button">Sign Out</button>
+
     </body>
 </html>
