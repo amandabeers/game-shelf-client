@@ -12,7 +12,18 @@ const indexGamesFailure = () => {
   console.log('Index games failed')
 }
 
+const createGameSuccess = responseData => {
+  $('form').trigger('reset')
+  console.log('Game created', responseData)
+}
+
+const createGameFailure = () => {
+  console.log('Create game failed')
+}
+
 module.exports = {
   indexGamesSuccess,
-  indexGamesFailure
+  indexGamesFailure,
+  createGameSuccess,
+  createGameFailure
 }
