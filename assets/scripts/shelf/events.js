@@ -11,12 +11,20 @@ const onGetShelf = event => {
 }
 
 const onAddToShelf = event => {
+  const gameId = $(event.target).data('id')
+  api.addToShelf(gameId)
+    .then(ui.addToShelfSuccess)
+    .catch(ui.addToShelfFailure)
+}
+
+const onRemoveFromShelf = event => {
 
 }
 
 const addHandlers = () => {
   $('#get-shelf').on('click', onGetShelf)
   $('main').on('click', '.add-to-shelf', onAddToShelf)
+  $('main').on('click', '.remove-from-shelf', onRemoveFromShelf)
 }
 
 module.exports = {

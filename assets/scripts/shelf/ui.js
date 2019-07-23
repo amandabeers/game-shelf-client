@@ -12,7 +12,17 @@ const getShelfFailure = () => {
   console.log('Get shelf failed')
 }
 
+const addToShelfSuccess = responseData => {
+  console.log('Game added to shelf', responseData)
+}
+
+const addToShelfFailure = () => {
+  console.log('Add to shelf failed')
+}
+
 module.exports = {
   getShelfSuccess,
-  getShelfFailure
+  getShelfFailure,
+  addToShelfSuccess,
+  addToShelfFailure
 }

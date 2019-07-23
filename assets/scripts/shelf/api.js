@@ -13,6 +13,23 @@ const getShelf = () => {
   })
 }
 
+const addToShelf = id => {
+  return $.ajax({
+    url: config.apiUrl + '/shelves',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      shelf: {
+        game_id: id,
+        notes: ''
+      }
+    }
+  })
+}
+
 module.exports = {
-  getShelf
+  getShelf,
+  addToShelf
 }
