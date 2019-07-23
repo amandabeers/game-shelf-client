@@ -1,0 +1,23 @@
+{{#each shelves as |shelf|}}
+  <section data-id="{{shelf.id}}">
+    <h6>Title:</h6>
+    <h3>
+      {{shelf.game.title}}
+    </h2>
+    <p>
+      {{shelf.game.min_players}} to {{shelf.game.max_players}} players
+    </p>
+    <p>
+      {{shelf.game.time_in_minutes}} minutes
+    </p>
+    <h4>Description:</h4>
+    <p>
+      {{shelf.game.description}}
+    </p>
+    <p>
+      {{shelf.notes}}
+    </p>
+    <button data-id="{{shelf.id}}" class="btn btn-danger remove-from-shelf">Remove from Your Shelf</button>
+  </section>
+
+{{/each}}
