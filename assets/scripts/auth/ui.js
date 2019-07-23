@@ -39,12 +39,11 @@ const changePasswordFailure = () => {
 }
 
 const signOutSuccess = () => {
-  $('form').trigger('reset')
+  $('.content').empty()
   console.log('Signed out')
 }
 
 const signOutFailure = () => {
-  $('form').trigger('reset')
   console.log('Sign out failed')
 }
 

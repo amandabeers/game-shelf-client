@@ -29,7 +29,18 @@ const addToShelf = id => {
   })
 }
 
+const removeFromShelf = id => {
+  return $.ajax({
+    url: config.apiUrl + '/shelves/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   getShelf,
-  addToShelf
+  addToShelf,
+  removeFromShelf
 }

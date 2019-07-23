@@ -4,7 +4,7 @@
 const api = require('./api')
 const ui = require('./ui')
 
-const onGetShelf = event => {
+const onGetShelf = () => {
   api.getShelf()
     .then(ui.getShelfSuccess)
     .catch(ui.getShelfFailure)
@@ -18,7 +18,13 @@ const onAddToShelf = event => {
 }
 
 const onRemoveFromShelf = event => {
-
+  const shelfId = $(event.target).data('id')
+  api.removeFromShelf(shelfId)
+    .then(() => {
+      ui.removeFromShelfSuccess()
+      onGetShelf()
+    })
+    .catch(ui.removeFromShelfFailure)
 }
 
 const addHandlers = () => {

@@ -20,9 +20,19 @@ const addToShelfFailure = () => {
   console.log('Add to shelf failed')
 }
 
+const removeFromShelfSuccess = () => {
+  console.log('Game removed from your shelf')
+}
+
+const removeFromShelfFailure = () => {
+  console.log('Remove from shelf failed')
+}
+
 module.exports = {
   getShelfSuccess,
   getShelfFailure,
   addToShelfSuccess,
-  addToShelfFailure
+  addToShelfFailure,
+  removeFromShelfSuccess,
+  removeFromShelfFailure
 }
