@@ -1,6 +1,7 @@
 'use strict'
 
 const getShelfTemplate = require('./../templates/get-shelf.handlebars')
+const store = require('./../store')
 
 const getShelfSuccess = responseData => {
   console.log('Get shelf success', responseData)
@@ -28,11 +29,34 @@ const removeFromShelfFailure = () => {
   console.log('Remove from shelf failed')
 }
 
+const updateNotesSuccess = () => {
+  $(`#${store.currModalId}`).modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  console.log('Update notes success')
+}
+
+const updateNotesFailure = () => {
+  $(`#${store.currModalId}`).modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  console.log('Update notes failed')
+}
+
+const discardChangesSuccess = () => {
+  $(`#${store.currModalId}`).modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+}
+
 module.exports = {
   getShelfSuccess,
   getShelfFailure,
   addToShelfSuccess,
   addToShelfFailure,
   removeFromShelfSuccess,
-  removeFromShelfFailure
+  removeFromShelfFailure,
+  updateNotesSuccess,
+  updateNotesFailure,
+  discardChangesSuccess
 }

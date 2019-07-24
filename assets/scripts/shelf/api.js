@@ -39,8 +39,24 @@ const removeFromShelf = id => {
   })
 }
 
+const updateNotes = (id, data) => {
+  return $.ajax({
+    url: config.apiUrl + '/shelves/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      shelf: {
+        notes: data.shelf.notes
+      }
+    }
+  })
+}
+
 module.exports = {
   getShelf,
   addToShelf,
-  removeFromShelf
+  removeFromShelf,
+  updateNotes
 }
