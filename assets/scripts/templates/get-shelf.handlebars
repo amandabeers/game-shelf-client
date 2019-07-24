@@ -1,32 +1,20 @@
 {{#each shelves as |shelf|}}
   <section data-id="{{shelf.id}}">
-    <h6>Title:</h6>
     <h3>
       {{shelf.game.title}}
     </h3>
     <p>
-      {{shelf.game.min_players}} to {{shelf.game.max_players}} players
+      Players: {{shelf.game.min_players}} to {{shelf.game.max_players}} players
     </p>
     <p>
-      {{shelf.game.time_in_minutes}} minutes
+      Play time: {{shelf.game.time_in_minutes}} minutes
     </p>
-    <h4>Description:</h4>
     <p>
-      {{shelf.game.description}}
+      Description: {{shelf.game.description}}
     </p>
-    <!-- <div id="shelf-{{shelf.id}}"> -->
-      <p>Notes:</p>
-      <p>
-        {{shelf.notes}}
-      </p>
-    <!-- </div> -->
-
-    <!-- <form data-id="{{shelf.id}}" class="update-notes">
-      <h5>Add notes to {{shelf.game.title}}</h5>
-      <textarea class="form-control" rows="3" name="shelf[notes]" placeholder="Add Notes">{{shelf.notes}}</textarea>
-      <button class="btn btn-primary" type="submit">Save changes</button>
-    </form>
-    <button data-id="{{shelf.id}}" class="btn btn-primary add-notes">Add Notes</button> -->
+    <p>
+      Notes: {{shelf.notes}}
+    </p>
 
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#shelf-{{shelf.id}}">
