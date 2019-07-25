@@ -62,7 +62,7 @@ const changePasswordFailure = () => {
   }, 3000)
 }
 
-const closeModal = () => {
+const resetForms = () => {
   $('form').trigger('reset')
 }
 
@@ -95,7 +95,7 @@ module.exports = {
   samePasswordMessage,
   changePasswordSuccess,
   changePasswordFailure,
-  closeModal,
+  resetForms,
   signOutSuccess,
   signOutFailure
 }

@@ -46,7 +46,11 @@ const onChangePassword = event => {
 }
 
 const onCloseModal = () => {
-  ui.closeModal()
+  ui.resetForms()
+}
+
+const onLaunchModal = () => {
+  ui.resetForms()
 }
 
 const onSignOut = () => {
@@ -59,6 +63,7 @@ const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('body').on('click', '.close', onCloseModal)
+  $('body').on('click', '.launch-modal', onLaunchModal)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
 }
