@@ -25,17 +25,29 @@ const signInFailure = () => {
 
 const samePasswordMessage = () => {
   $('form').trigger('reset')
-  console.log('New password must be different from old')
+  $('#change-pw-message').text('New password must be different from old')
+  setTimeout(function () {
+    $('#change-pw-message').text('')
+  }, 3000)
 }
 
 const changePasswordSuccess = () => {
   $('form').trigger('reset')
-  console.log('Password changed')
+  $(`#pwModal`).modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+  $('#auth-message').text('Your password has been changed')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const changePasswordFailure = () => {
   $('form').trigger('reset')
-  console.log('Password change failed')
+  $('#change-pw-message').text('Password change failed')
+  setTimeout(function () {
+    $('#change-pw-message').text('')
+  }, 3000)
 }
 
 const signOutSuccess = () => {

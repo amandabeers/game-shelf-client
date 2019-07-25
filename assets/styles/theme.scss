@@ -1,0 +1,17 @@
+@import 'colors';
+
+$heading-bar-color: $coral;
+$title-font-color: $white-grey;
+
+header {
+  color: $title-font-color;
+  font-family: 'Staatliches', cursive;
+}
+
+main {
+  font-family: 'Lato', sans-serif;
+}
+
+.heading {
+  background-color: $heading-bar-color;
+}
