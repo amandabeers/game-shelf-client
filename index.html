@@ -76,36 +76,30 @@
           </div>
         </div>
 
-      <nav>
-        <!-- <button id="sign-out" class="btn btn-primary" type="button">Sign Out</button> -->
-        <!-- <button id="index-games" class="btn btn-primary" type="button">All Games</button> -->
-        <button id="create-game-btn" class="btn btn-primary" type="button">Create Game</button>
-        <!-- <button id="get-shelf" class="btn btn-primary" type="button">Your Shelf</button> -->
-      </nav>
-
-      <!-- <div class="container">
-        <div class="row justify-content-center">
-          <form id="change-password" class="col-xs-9 col-md-6">
-            <h4>Change Password</h4>
-            <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
-            <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
-            <button class="btn btn-primary" type="submit">Change Password</button>
-            <p id="change-pw-message"></p>
-          </form>
-        </div>
-      </div> -->
-
-      <div class="container">
-        <div class="row justify-content-center">
-          <form id="create-game" class="col-xs-9 col-md-6">
-            <h4>Create Game</h4>
-            <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game">
-            <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players">
-            <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players">
-            <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes">
-            <textarea class="form-control mb-1" name="game[description]" placeholder="Game Description" rows="2"></textarea>
-            <button class="btn btn-primary" type="submit">Create Game</button>
-          </form>
+      <!-- Create Game Modal -->
+      <div class="modal fade" id="createGameModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createModal">Create Game</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <form id="create-game">
+                <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game">
+                <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players">
+                <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players">
+                <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes">
+                <textarea class="form-control mb-1" name="game[description]" placeholder="Game Description" rows="2"></textarea>
+                <button class="btn btn-primary" type="submit">Create Game</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <p id="create-game-message"></p>
+            </div>
+          </div>
         </div>
       </div>
 

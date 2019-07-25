@@ -1,4 +1,9 @@
-<h2>All Games</h2>
+<div class="d-flex align-items-center">
+  <h2 class="mr-auto">All Games</h2>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createGameModal">
+    Create Game
+  </button>
+</div>
 {{#each games as |game|}}
   <section data-id="{{game.id}}">
     <h3>

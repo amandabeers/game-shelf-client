@@ -16,6 +16,9 @@ const indexGamesFailure = () => {
 
 const createGameSuccess = responseData => {
   $('form').trigger('reset')
+  $('#createGameModal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   console.log('Game created', responseData)
 }
 

@@ -4,7 +4,7 @@ const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 
-const onIndexGames = event => {
+const onIndexGames = () => {
   api.indexGames()
     .then(ui.indexGamesSuccess)
     .catch(ui.indexGamesFailure)
@@ -15,7 +15,10 @@ const onCreateGame = event => {
   const form = event.target
   const formData = getFormFields(form)
   api.createGame(formData)
-    .then(ui.createGameSuccess)
+    .then(() => {
+      ui.createGameSuccess()
+      onIndexGames()
+    })
     .catch(ui.createGameFailure)
 }
 
