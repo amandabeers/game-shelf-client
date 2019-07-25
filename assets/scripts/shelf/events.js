@@ -13,6 +13,7 @@ const onGetShelf = () => {
 
 const onAddToShelf = event => {
   const gameId = $(event.target).data('id')
+  store.currGameId = `add-${gameId}`
   api.addToShelf(gameId)
     .then(ui.addToShelfSuccess)
     .catch(ui.addToShelfFailure)

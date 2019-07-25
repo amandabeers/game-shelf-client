@@ -5,6 +5,7 @@
   </button>
 </div>
 {{#each games as |game|}}
+  {{log game}}
   <section data-id="{{game.id}}">
     <h3>
       {{game.title}}
@@ -18,7 +19,7 @@
     <p>
       Description: {{game.description}}
     </p>
-    <button data-id="{{game.id}}" class="btn btn-success add-to-shelf">Add to Your Shelf</button>
+    <button id="add-{{game.id}}" data-id="{{game.id}}" class="btn btn-success add-to-shelf" {{disableBtn game}}>Add to Your Shelf</button>
   </section>
 
 {{/each}}

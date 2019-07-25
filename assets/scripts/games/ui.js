@@ -1,6 +1,7 @@
 'use strict'
 
 const indexGamesTemplate = require('./../templates/index-games.handlebars')
+// const store = require('./../store')
 
 const indexGamesSuccess = responseData => {
   console.log('Index games success', responseData)

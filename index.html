@@ -20,7 +20,7 @@
           <form id="sign-in">
             <input class="mb-1" type="email" name="credentials[email]" placeholder="Email">
             <input class="mb-1" type="password" name="credentials[password]" placeholder="Password">
-            <button class="btn btn-primary" type="submit">Sign In</button>
+            <button class="btn btn-secondary" type="submit">Sign In</button>
           </form>
           <div id="auth-dropdown" class="btn-group hidden">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,19 +34,19 @@
             </div>
           </div>
         </div>
+        <p class="text-justify-right message" id="auth-message"></p>
       </div>
-      <p class="text-center pt-2 message" id="auth-message"></p>
       <div id="landing-page" class="container">
           <div class="row">
             <div class="col-md-8">
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mt-5">
               <form id="sign-up">
                 <h4>Sign Up</h4>
                 <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
                 <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
                 <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                <button class="btn btn-primary" type="submit">Sign Up</button>
+                <button class="btn btn-primary" type="submit" disabled: true>Sign Up</button>
               </form>
             </div>
           </div>
@@ -103,8 +103,8 @@
         </div>
       </div>
 
-      <main class="hidden">
-        <div id="selector" class="btn-group">
+      <main class="hidden p-3">
+        <div id="selector" class="btn-group mb-2">
           <button id="get-shelf" type="button" class="btn btn-secondary">Your Shelf</button>
           <button id="index-games" type="button" class="btn btn-secondary">All Games</button>
         </div>

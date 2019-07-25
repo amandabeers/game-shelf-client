@@ -4,12 +4,16 @@ const getShelfTemplate = require('./../templates/get-shelf.handlebars')
 const store = require('./../store')
 
 const getShelfSuccess = responseData => {
-  console.log('Get shelf success', responseData)
-  const showShelfHtml = getShelfTemplate({ shelves: responseData.shelves })
-  $('.content').html(showShelfHtml)
+  store.currUserShelf = responseData
+  if (responseData.shelves.length === 0) {
+    $('.content').html('Your shelf is empty')
+  } else {
+    const showShelfHtml = getShelfTemplate({ shelves: responseData.shelves })
+    $('.content').html(showShelfHtml)
+  }
   $('#get-shelf').addClass('active')
   $('#index-games').removeClass('active')
-  store.currUserShelf = responseData
+  console.log(store.currUserShelf)
 }
 
 const getShelfFailure = () => {
@@ -18,6 +22,7 @@ const getShelfFailure = () => {
 
 const addToShelfSuccess = responseData => {
   console.log('Game added to shelf', responseData)
+  $(`#${store.currGameId}`).attr('disabled', true)
 }
 
 const addToShelfFailure = () => {

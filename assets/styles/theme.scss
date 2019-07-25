@@ -19,8 +19,11 @@ main {
 
 .heading {
   background-color: $heading-bar-color;
+  height: 6em;
 }
 
 .message {
-  height: 1.5em;
+  color: $title-font-color;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
 }
