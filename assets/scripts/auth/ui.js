@@ -4,23 +4,35 @@ const store = require('./../store')
 
 const signUpSuccess = responseData => {
   $('form').trigger('reset')
-  console.log('Sign up success')
 }
 
 const signUpFailure = () => {
   $('form').trigger('reset')
-  console.log('Sign up failed')
+  $('#auth-message').text('Sign up failed')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const signInSuccess = responseData => {
   $('form').trigger('reset')
   store.user = responseData.user
-  console.log('Sign in success', store.user)
+  $('#sign-in').addClass('hidden')
+  $('#landing-page').addClass('hidden')
+  $('#auth-dropdown').removeClass('hidden')
+  $('main').removeClass('hidden')
+  $('#auth-message').text('Signed in successfully')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const signInFailure = () => {
   $('form').trigger('reset')
-  console.log('Sign in failed')
+  $('#auth-message').text('Incorrect username or password')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const samePasswordMessage = () => {
@@ -52,11 +64,23 @@ const changePasswordFailure = () => {
 
 const signOutSuccess = () => {
   $('.content').empty()
-  console.log('Signed out')
+  $('#auth-dropdown').addClass('hidden')
+  $('#sign-in').removeClass('hidden')
+  $('#landing-page').removeClass('hidden')
+  $('#get-shelf').removeClass('active')
+  $('#index-games').removeClass('active')
+  $('main').addClass('hidden')
+  $('#auth-message').text('Signed out')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const signOutFailure = () => {
-  console.log('Sign out failed')
+  $('#auth-message').text('Signed out failed')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 module.exports = {

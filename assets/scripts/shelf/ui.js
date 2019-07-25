@@ -7,6 +7,9 @@ const getShelfSuccess = responseData => {
   console.log('Get shelf success', responseData)
   const showShelfHtml = getShelfTemplate({ shelves: responseData.shelves })
   $('.content').html(showShelfHtml)
+  $('#get-shelf').addClass('active')
+  $('#index-games').removeClass('active')
+  store.currUserShelf = responseData
 }
 
 const getShelfFailure = () => {

@@ -22,7 +22,7 @@
             <input class="mb-1" type="password" name="credentials[password]" placeholder="Password">
             <button class="btn btn-primary" type="submit">Sign In</button>
           </form>
-          <div id="auth-dropdown" class="btn-group">
+          <div id="auth-dropdown" class="btn-group hidden">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Menu
             </button>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </div>
-      <p class="text-center pt-2" id="auth-message"></p>
+      <p class="text-center pt-2 message" id="auth-message"></p>
       <div id="landing-page" class="container">
           <div class="row">
             <div class="col-md-8">
@@ -78,9 +78,9 @@
 
       <nav>
         <!-- <button id="sign-out" class="btn btn-primary" type="button">Sign Out</button> -->
-        <button id="index-games" class="btn btn-primary" type="button">All Games</button>
+        <!-- <button id="index-games" class="btn btn-primary" type="button">All Games</button> -->
         <button id="create-game-btn" class="btn btn-primary" type="button">Create Game</button>
-        <button id="get-shelf" class="btn btn-primary" type="button">Your Shelf</button>
+        <!-- <button id="get-shelf" class="btn btn-primary" type="button">Your Shelf</button> -->
       </nav>
 
       <!-- <div class="container">
@@ -109,15 +109,19 @@
         </div>
       </div>
 
-      <main>
-        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <main class="hidden">
+        <div id="selector" class="btn-group">
+          <button id="get-shelf" type="button" class="btn btn-secondary">Your Shelf</button>
+          <button id="index-games" type="button" class="btn btn-secondary">All Games</button>
+        </div>
+        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked> Your Shelf
+            <input type="radio" name="options" id="get-shelf" autocomplete="off" checked> Your Shelf
           </label>
           <label class="btn btn-secondary">
-            <input type="radio" name="options" id="option2" autocomplete="off"> All Games
+            <input type="radio" name="options" id="index-games" autocomplete="off"> All Games
           </label>
-        </div>
+        </div> -->
         <div id="content" class="content"></div>
       </main>
 

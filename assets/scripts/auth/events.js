@@ -3,6 +3,8 @@
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const shelfApi = require('./../shelf/api')
+const shelfUi = require('./../shelf/ui')
 
 const onSignUp = event => {
   event.preventDefault()
@@ -22,6 +24,11 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.signInSuccess)
+    .then(() => {
+      shelfApi.getShelf()
+        .then(shelfUi.getShelfSuccess)
+        .catch(shelfUi.getShelfFailure)
+    })
     .catch(ui.signInFailure)
 }
 
