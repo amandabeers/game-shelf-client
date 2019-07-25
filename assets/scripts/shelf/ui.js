@@ -13,42 +13,54 @@ const getShelfSuccess = responseData => {
   }
   $('#get-shelf').addClass('active')
   $('#index-games').removeClass('active')
-  console.log(store.currUserShelf)
 }
 
 const getShelfFailure = () => {
-  console.log('Get shelf failed')
+  $('#auth-message').text('Failed to get shelf')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const addToShelfSuccess = responseData => {
-  console.log('Game added to shelf', responseData)
   $(`#${store.currGameId}`).attr('disabled', true)
 }
 
 const addToShelfFailure = () => {
-  console.log('Add to shelf failed')
+  $('#auth-message').text('Failed to add game to your shelf')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const removeFromShelfSuccess = () => {
-  console.log('Game removed from your shelf')
+  $('#auth-message').text('Game was removed from your shelf')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const removeFromShelfFailure = () => {
-  console.log('Remove from shelf failed')
+  $('#auth-message').text('Failed to remove game from your shelf')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const updateNotesSuccess = () => {
   $(`#${store.currModalId}`).modal('hide')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
-  console.log('Update notes success')
 }
 
 const updateNotesFailure = () => {
   $(`#${store.currModalId}`).modal('hide')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
-  console.log('Update notes failed')
+  $('#auth-message').text('Failed to update notes')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const discardChangesSuccess = () => {

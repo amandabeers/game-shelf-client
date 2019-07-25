@@ -4,7 +4,6 @@ const indexGamesTemplate = require('./../templates/index-games.handlebars')
 // const store = require('./../store')
 
 const indexGamesSuccess = responseData => {
-  console.log('Index games success', responseData)
   const showGamesHtml = indexGamesTemplate({ games: responseData.games })
   $('.content').html(showGamesHtml)
   $('#index-games').addClass('active')
@@ -12,7 +11,10 @@ const indexGamesSuccess = responseData => {
 }
 
 const indexGamesFailure = () => {
-  console.log('Index games failed')
+  $('#auth-message').text('Failed to get games')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const createGameSuccess = responseData => {
@@ -20,11 +22,17 @@ const createGameSuccess = responseData => {
   $('#createGameModal').modal('hide')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
-  console.log('Game created', responseData)
+  $('#auth-message').text('Game created')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const createGameFailure = () => {
-  console.log('Create game failed')
+  $('#auth-message').text('Failed to create game')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 module.exports = {
