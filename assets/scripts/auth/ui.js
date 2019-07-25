@@ -62,6 +62,10 @@ const changePasswordFailure = () => {
   }, 3000)
 }
 
+const closeModal = () => {
+  $('form').trigger('reset')
+}
+
 const signOutSuccess = () => {
   $('.content').empty()
   $('#auth-dropdown').addClass('hidden')
@@ -91,6 +95,7 @@ module.exports = {
   samePasswordMessage,
   changePasswordSuccess,
   changePasswordFailure,
+  closeModal,
   signOutSuccess,
   signOutFailure
 }

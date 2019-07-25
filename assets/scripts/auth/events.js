@@ -45,6 +45,10 @@ const onChangePassword = event => {
   }
 }
 
+const onCloseModal = () => {
+  ui.closeModal()
+}
+
 const onSignOut = () => {
   api.signOut()
     .then(ui.signOutSuccess)
@@ -54,6 +58,7 @@ const onSignOut = () => {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('body').on('click', '.close', onCloseModal)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
 }
