@@ -50,12 +50,21 @@ const onDiscardChanges = event => {
   ui.discardChangesSuccess()
 }
 
+const onFilterPlayers = event => {
+  event.preventDefault()
+  const form = event.target
+  store.filter = getFormFields(form)
+  ui.filterPlayersSuccess()
+}
+
 const addHandlers = () => {
   $('#get-shelf').on('click', onGetShelf)
   $('main').on('click', '.add-to-shelf', onAddToShelf)
   $('main').on('click', '.remove-from-shelf', onRemoveFromShelf)
   $('main').on('submit', '.update-notes', onUpdateNotes)
   $('main').on('click', '.discard-changes', onDiscardChanges)
+  $('main').on('submit', '#filter-players', onFilterPlayers)
+  $('main').on('click', '#unfilter', onGetShelf)
 }
 
 module.exports = {

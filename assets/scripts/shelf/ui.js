@@ -1,6 +1,7 @@
 'use strict'
 
 const getShelfTemplate = require('./../templates/get-shelf.handlebars')
+// const filterShelfTemplate = require('./../templates/filter-shelf.handlebars')
 const store = require('./../store')
 
 const getShelfSuccess = responseData => {
@@ -74,6 +75,32 @@ const discardChangesSuccess = () => {
   $('.modal-backdrop').remove()
 }
 
+const filterPlayersSuccess = () => {
+  const numPlayers = store.filter.game.players
+  const filteredShelf = []
+  for (let i = 0; i < store.currUserShelf.shelves.length; i++) {
+    const currGame = store.currUserShelf.shelves[i]
+    const minPlayers = currGame.game.min_players
+    const maxPlayers = currGame.game.max_players
+    if (numPlayers >= minPlayers && numPlayers <= maxPlayers) {
+      filteredShelf.push(currGame)
+    }
+  }
+  if (store.currUserShelf.shelves.length === 0) {
+    $('.content').html('Your shelf is empty')
+  } else {
+    const showShelfHtml = getShelfTemplate({ shelves: filteredShelf })
+    $('.content').html(showShelfHtml)
+  }
+}
+
+const filterPlayersFailure = () => {
+  $('#auth-message').text('Failed to filter')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
+}
+
 module.exports = {
   getShelfSuccess,
   getShelfFailure,
@@ -83,5 +110,7 @@ module.exports = {
   removeFromShelfFailure,
   updateNotesSuccess,
   updateNotesFailure,
-  discardChangesSuccess
+  discardChangesSuccess,
+  filterPlayersSuccess,
+  filterPlayersFailure
 }
