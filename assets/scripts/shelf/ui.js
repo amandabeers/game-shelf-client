@@ -92,13 +92,13 @@ const filterPlayersSuccess = () => {
     const showShelfHtml = getShelfTemplate({ shelves: filteredShelf })
     $('.content').html(showShelfHtml)
   }
-}
-
-const filterPlayersFailure = () => {
-  $('#auth-message').text('Failed to filter')
-  setTimeout(function () {
-    $('#auth-message').text('')
-  }, 3000)
+  if (filteredShelf.length === 0) {
+    $('#auth-message').text('No matching results')
+    setTimeout(function () {
+      $('#auth-message').text('')
+    }, 3000)
+  }
+  $('form').trigger('reset')
 }
 
 module.exports = {
@@ -111,6 +111,5 @@ module.exports = {
   updateNotesSuccess,
   updateNotesFailure,
   discardChangesSuccess,
-  filterPlayersSuccess,
-  filterPlayersFailure
+  filterPlayersSuccess
 }
