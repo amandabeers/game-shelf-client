@@ -17,9 +17,9 @@
           <header class="flex-grow-1">
             <h1>Game Shelf</h1>
           </header>
-          <form id="sign-in">
-            <input class="mb-1" type="email" name="credentials[email]" placeholder="Email">
-            <input class="mb-1" type="password" name="credentials[password]" placeholder="Password">
+          <form id="sign-in" class="form-inline form-group m-2">
+            <input class="form-control mr-2" type="email" name="credentials[email]" placeholder="Email">
+            <input class="form-control mr-2" type="password" name="credentials[password]" placeholder="Password">
             <button class="btn btn-secondary" type="submit">Sign In</button>
           </form>
           <div id="auth-dropdown" class="btn-group hidden">
@@ -46,7 +46,7 @@
                 <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
                 <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
                 <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                <button class="btn btn-primary" type="submit" disabled: true>Sign Up</button>
+                <button class="btn btn-primary" type="submit">Sign Up</button>
               </form>
             </div>
           </div>
@@ -88,11 +88,11 @@
             </div>
             <div class="modal-body d-flex justify-content-center">
               <form id="create-game">
-                <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game">
-                <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players">
-                <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players">
-                <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes">
-                <textarea class="form-control mb-1" name="game[description]" placeholder="Game Description" rows="2"></textarea>
+                <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game" required>
+                <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players" required>
+                <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players" required>
+                <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes" required>
+                <textarea class="form-control mb-1" name="game[description]" placeholder="Game Description" rows="2" required></textarea>
                 <button class="btn btn-primary" type="submit">Create Game</button>
               </form>
             </div>

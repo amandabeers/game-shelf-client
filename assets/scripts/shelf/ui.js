@@ -24,6 +24,11 @@ const getShelfFailure = () => {
 
 const addToShelfSuccess = responseData => {
   $(`#${store.currGameId}`).attr('disabled', true)
+  $(`#${store.currGameId}`).attr('title', 'On your shelf')
+  $('#auth-message').text('Game added to your shelf')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
 }
 
 const addToShelfFailure = () => {
@@ -34,7 +39,7 @@ const addToShelfFailure = () => {
 }
 
 const removeFromShelfSuccess = () => {
-  $('#auth-message').text('Game was removed from your shelf')
+  $('#auth-message').text('Game removed from your shelf')
   setTimeout(function () {
     $('#auth-message').text('')
   }, 3000)

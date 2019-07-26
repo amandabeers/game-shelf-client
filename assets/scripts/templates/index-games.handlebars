@@ -1,24 +1,28 @@
 <div class="d-flex align-items-center">
   <h2 class="mr-auto">All Games</h2>
-  <button type="button" class="btn btn-primary launch-modal" data-toggle="modal" data-target="#createGameModal">
+  <button type="button" class="btn btn-success launch-modal" data-toggle="modal" data-target="#createGameModal">
     Create Game
   </button>
 </div>
-{{#each games as |game|}}
-  <section data-id="{{game.id}}">
-    <h3>
-      {{game.title}}
-    </h3>
-    <p>
-      Players: {{game.min_players}} to {{game.max_players}} players
-    </p>
-    <p>
-      Play time: {{game.time_in_minutes}} minutes
-    </p>
-    <p>
-      Description: {{game.description}}
-    </p>
-    <button id="add-{{game.id}}" data-id="{{game.id}}" class="btn btn-success add-to-shelf" {{disableBtn game}}>Add to Your Shelf</button>
-  </section>
+<div class="container">
+  <div class="row">
+    {{#each games as |game|}}
+      <section data-id="{{game.id}}" class="card mb-2 p-2 col-12 col-sm-6 col-md-4">
+        <h3>
+          <button id="add-{{game.id}}" data-id="{{game.id}}" class="btn btn-success add-to-shelf" {{disableBtn game}} data-toggle="tooltip" data-placement="top" title="{{tooltip game}}">+</button>
+          {{game.title}}
+        </h3>
+        <p>
+          Players: {{game.min_players}} to {{game.max_players}} players
+        </p>
+        <p>
+          Play time: {{game.time_in_minutes}} minutes
+        </p>
+        <p>
+          Description: {{game.description}}
+        </p>
+      </section>
 
-{{/each}}
+    {{/each}}
+  </div>
+</div>

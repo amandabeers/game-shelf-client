@@ -1,51 +1,58 @@
 <h2>Your Shelf</h2>
-{{#each shelves as |shelf|}}
-  <section data-id="{{shelf.id}}">
-    <h3>
-      {{shelf.game.title}}
-    </h3>
-    <p>
-      Players: {{shelf.game.min_players}} to {{shelf.game.max_players}} players
-    </p>
-    <p>
-      Play time: {{shelf.game.time_in_minutes}} minutes
-    </p>
-    <p>
-      Description: {{shelf.game.description}}
-    </p>
-    <p>
-      Notes: {{shelf.notes}}
-    </p>
+<form id="filter-player" class="form-inline form-group m-2">
+  <input class="form-control mr-2" type="number" name="game[players]" placeholder="Number of Players">
+  <button class="btn btn-secondary" type="submit">Filter</button>
+</form>
+<div class="container">
+  <div class="row">
+  {{#each shelves as |shelf|}}
+    <section data-id="{{shelf.id}}" class="card mb-2 p-2 col-12 col-sm-6 col-md-4">
+      <div>
+        <h3>
+          <button data-id="{{shelf.id}}" class="btn btn-danger remove-from-shelf" data-toggle="tooltip" data-placement="top" title="Remove from shelf">-</button>
+          {{shelf.game.title}}
+        </h3>
+        <p>
+          Players: {{shelf.game.min_players}} to {{shelf.game.max_players}} players
+        </p>
+        <p>
+          Play time: {{shelf.game.time_in_minutes}} minutes
+        </p>
+        <p>
+          Description: {{shelf.game.description}}
+        </p>
+        <p class="shelf-notes">
+          Notes: {{shelf.notes}}
+        </p>
+      </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary launch-modal" data-toggle="modal" data-target="#shelf-{{shelf.id}}">
-      Add Notes
-    </button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary launch-modal" data-toggle="modal" data-target="#shelf-{{shelf.id}}">
+        Add Notes
+      </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="shelf-{{shelf.id}}" tabindex="-1" role="dialog" aria-labelledby="notesModal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Add notes to {{shelf.game.title}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form data-id="{{shelf.id}}" class="update-notes">
-              <textarea class="form-control" rows="3" name="shelf[notes]" placeholder="Add Notes">{{shelf.notes}}</textarea>
-          <!-- </div>
-          <div class="modal-footer"> -->
-              <button type="button" class="btn btn-secondary discard-changes" data-dismiss="modal">Discard changes</button>
-              <button type="submit" class="btn btn-primary">Save changes</button>
-            </form>
+      <!-- Add Notes Modal -->
+      <div class="modal fade" id="shelf-{{shelf.id}}" tabindex="-1" role="dialog" aria-labelledby="notesModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Add notes to {{shelf.game.title}}</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form data-id="{{shelf.id}}" class="update-notes">
+                <textarea class="form-control" rows="3" name="shelf[notes]" placeholder="Add Notes">{{shelf.notes}}</textarea>
+                <button type="button" class="btn btn-secondary discard-changes" data-dismiss="modal">Discard changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <button data-id="{{shelf.id}}" class="btn btn-danger remove-from-shelf">Remove from Your Shelf</button>
-  </section>
-
-{{/each}}
+    {{/each}}
+  </div>
+</div>
