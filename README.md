@@ -1,6 +1,6 @@
 ## Game Shelf
 
-### Desciption
+### Description
 
 Game Shelf is an app that lets you add board games to your shelf from a database of games. If you don't see the game you're looking for, you can creat one! You can see what games are on your shelf as well as filter based on number of players.
 
