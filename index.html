@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Game Shelf</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Lato|Staatliches&display=swap" rel="stylesheet">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+
+    <body>
+      <div class="container-fluid heading">
+        <div class="d-flex flex-row align-items-center">
+          <header class="flex-grow-1">
+            <h1>Game Shelf</h1>
+          </header>
+          <form id="sign-in" class="form-inline form-group m-2">
+            <input class="form-control mr-2" type="email" name="credentials[email]" placeholder="Email">
+            <input class="form-control mr-2" type="password" name="credentials[password]" placeholder="Password">
+            <button class="btn btn-secondary" type="submit">Sign In</button>
+          </form>
+          <div id="auth-dropdown" class="btn-group hidden">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Menu
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button type="button" class="dropdown-item launch-modal" data-toggle="modal" data-target="#pwModal">
+                Change Password
+              </button>
+              <button id="sign-out" class="dropdown-item" type="button">Sign Out</button>
+            </div>
+          </div>
+        </div>
+        <p class="text-justify-right message" id="auth-message"></p>
+      </div>
+      <div id="landing-page" class="container">
+          <div class="row">
+            <div class="col-md-7 mt-5 text-center">
+              <img src="./public/meeple.png" alt="Meeple Image">
+            </div>
+            <div class="col-md-5 mt-5">
+              <button class="btn btn-primary mb-2" type="button" data-toggle="modal" data-target="#about-app-modal">About Game Shelf</button>
+              <button class="btn btn-primary mb-2" type="button" id="demo-sign-in">Sign in to Demo Account</button>
+              <form id="sign-up">
+                <h4>Sign Up</h4>
+                <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+                <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+                <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <button class="btn btn-primary" type="submit">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- About App Modal -->
+        <div class="modal fade" id="about-app-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Game Shelf is an app that lets you add board games to your shelf from a database of games. If you don't see the game you're looking for, you can create one! You can see what games are on your shelf as well as filter based on number of players.</p>
+                <p>You can sign in to the demo account - 'demo@demo.com' with a password of 'password' or click 'Sign in to Demo Account' on the home page.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Change Password Modal -->
+        <div class="modal fade" id="pwModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModal">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body d-flex justify-content-center">
+                <form id="change-password">
+                  <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
+                  <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
+                  <button class="btn btn-primary" type="submit">Change Password</button>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <p id="change-pw-message"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      <!-- Create Game Modal -->
+      <div class="modal fade" id="createGameModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="createModal">Create Game</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <form id="create-game">
+                <input class="form-control mb-1" type=text name="game[title]" placeholder="Full Title of Game" required>
+                <input class="form-control mb-1" type=number name="game[min_players]" placeholder="Minimum Number of Players" required>
+                <input class="form-control mb-1" type=number name="game[max_players]" placeholder="Maximum Number of Players" required>
+                <input class="form-control mb-1" type=number name="game[time_in_minutes]" placeholder="Time to Play in Minutes" required>
+                <textarea class="form-control mb-1" name="game[description]" placeholder="Game Description" rows="2" required></textarea>
+                <button class="btn btn-primary" type="submit">Create Game</button>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <p id="create-game-message"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <main class="hidden p-3">
+        <div id="selector" class="btn-group mb-2">
+          <button id="get-shelf" type="button" class="btn btn-secondary">Your Shelf</button>
+          <button id="index-games" type="button" class="btn btn-secondary">All Games</button>
+        </div>
+        <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active">
+            <input type="radio" name="options" id="get-shelf" autocomplete="off" checked> Your Shelf
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="index-games" autocomplete="off"> All Games
+          </label>
+        </div> -->
+        <div id="content" class="content"></div>
+      </main>
+
+    </body>
+</html>
