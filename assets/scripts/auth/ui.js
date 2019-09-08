@@ -87,6 +87,27 @@ const signOutFailure = () => {
   }, 3000)
 }
 
+const demoSignInSuccess = responseData => {
+  $('form').trigger('reset')
+  store.user = responseData.user
+  $('#sign-in').addClass('hidden')
+  $('#landing-page').addClass('hidden')
+  $('#auth-dropdown').removeClass('hidden')
+  $('main').removeClass('hidden')
+  $('#auth-message').text('You have signed in to the demo account!')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
+}
+
+const demoSignInFailure = () => {
+  $('form').trigger('reset')
+  $('#auth-message').text('Oops, something went wrong')
+  setTimeout(function () {
+    $('#auth-message').text('')
+  }, 3000)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -97,5 +118,7 @@ module.exports = {
   changePasswordFailure,
   resetForms,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  demoSignInSuccess,
+  demoSignInFailure
 }

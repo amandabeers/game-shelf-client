@@ -7,7 +7,7 @@ const store = require('./../store')
 const getShelfSuccess = responseData => {
   store.currUserShelf = responseData
   if (responseData.shelves.length === 0) {
-    $('.content').html('Your shelf is empty')
+    $('.content').html('Your shelf is empty. You can add games to your shelf from \'All Games\' above.')
   } else {
     const showShelfHtml = getShelfTemplate({ shelves: responseData.shelves })
     $('.content').html(showShelfHtml)

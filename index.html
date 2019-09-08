@@ -11,6 +11,7 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
       <div class="container-fluid heading">
         <div class="d-flex flex-row align-items-center">
@@ -38,10 +39,12 @@
       </div>
       <div id="landing-page" class="container">
           <div class="row">
-            <div class="col-md-8 mt-5 text-center">
+            <div class="col-md-7 mt-5 text-center">
               <img src="./public/meeple.png" alt="Meeple Image">
             </div>
-            <div class="col-md-4 mt-5">
+            <div class="col-md-5 mt-5">
+              <button class="btn btn-primary mb-2" type="button" data-toggle="modal" data-target="#about-app-modal">About Game Shelf</button>
+              <button class="btn btn-primary mb-2" type="button" id="demo-sign-in">Sign in to Demo Account</button>
               <form id="sign-up">
                 <h4>Sign Up</h4>
                 <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
@@ -49,6 +52,27 @@
                 <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
                 <button class="btn btn-primary" type="submit">Sign Up</button>
               </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- About App Modal -->
+        <div class="modal fade" id="about-app-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">About</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Game Shelf is an app that lets you add board games to your shelf from a database of games. If you don't see the game you're looking for, you can create one! You can see what games are on your shelf as well as filter based on number of players.</p>
+                <p>You can sign in to the demo account - 'demo@demo.com' with a password of 'password' or click 'Sign in to Demo Account' on the home page.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
             </div>
           </div>
         </div>

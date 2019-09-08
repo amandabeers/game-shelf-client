@@ -59,6 +59,23 @@ const onSignOut = () => {
     .catch(ui.signOutFailure)
 }
 
+const onDemoSignIn = () => {
+  const formData = {
+    credentials: {
+      email: 'demo@demo.com',
+      password: 'password'
+    }
+  }
+  api.signIn(formData)
+    .then(ui.demoSignInSuccess)
+    .then(() => {
+      shelfApi.getShelf()
+        .then(shelfUi.getShelfSuccess)
+        .catch(shelfUi.getShelfFailure)
+    })
+    .catch(ui.demoSignInFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -66,6 +83,7 @@ const addHandlers = () => {
   $('body').on('click', '.launch-modal', onLaunchModal)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('#demo-sign-in').on('click', onDemoSignIn)
 }
 
 module.exports = {
